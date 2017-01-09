@@ -55,25 +55,17 @@ Firefox:
 
 ### Changes Made to main.js
 
-1. **updatePositions()** Moved computations outside of the for loop and changed document.querySelectorAll to use document.getElementsByClassName. Changed from using style.left to using style.transform on the pizza positions. (~line 504) 
-
-   **Result:** This reduced the time to generate the last 10 frames down to <1ms.
+1. **updatePositions()** Moved computations outside of the for loop and changed document.querySelectorAll to use document.getElementsByClassName. Changed from using style.left to using style.transform on the pizza positions. (~line 504) **Result:** This reduced the time to generate the last 10 frames down to <1ms.
    
-2. **Resized the pizza.png** used for moving pizzas down to 100px by 100px, this enabled removing the resizing of the image from the pizza generating loop in document.addEventListener. 
-
-   **Result:** This did not seem to improve anything, but this reduced the size of the image from 18.1kB to 5.7kB.
+2. **Resized the pizza.png** used for moving pizzas down to 100px by 100px, this enabled removing the resizing of the image from the pizza generating loop in document.addEventListener. **Result:** This did not seem to improve anything, but this reduced the size of the image from 18.1kB to 5.7kB.
    
-3. **Reduced the number of sliding pizzas** from 200 down to 35. (~line 543)
-
-   **Result:** This did not reduce the first generation of 10 frames, but subsequent generation of 10 frames was now <1ms.  Viewing the page on a large desktop screen, 1920 x 1080 pixels did not exhibit any noticeable lack of sliding pizzas.
+3. **Reduced the number of sliding pizzas** from 200 down to 35. (~line 543) **Result:** This did not reduce the first generation of 10 frames, but subsequent generation of 10 frames was now <1ms.  Viewing the page on a large desktop screen, 1920 x 1080 pixels did not exhibit any noticeable lack of sliding pizzas.
    
 4. **pizzasDiv** Moved computation outside of the for loop that creates and appends pizzas (pizzasDiv). (~line 469)
 
-5. **changePizzaSizes(size)** Moved computations outside of the for loop to reduce the time to resize pizzas. (~line 438)
-
-    **Result:** This reduced the time to resize pizzas down to <2ms.
+5. **changePizzaSizes(size)** Moved computations outside of the for loop to reduce the time to resize pizzas. (~line 438) **Result:** This reduced the time to resize pizzas down to <2ms.
     
-6. **document.addEventListener('DOMContentLoaded', function()** Removed height and width comps, they are not needed with the resized square image
+6. **document.addEventListener('DOMContentLoaded', function()** Removed height and width comps, they are not needed with the resized square image.
 
 7. Added 'use strict' to the top of the file.
  
