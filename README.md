@@ -42,30 +42,30 @@ This is Project 4 for the Udacity Front End Developer Nanodegree. Goals for this
   There are several complex solutions, but I am not pursuing it for this project.
 
 ### Results After Optimizing main.js for pizza.html 
-Chrome:
+***Chrome:***
 * Time to generate pizzas on load ranges from 27 to 45ms
-* Avg scripting time to generate last 10 frames is typically <1ms
-* Time to resize pizzas is <1ms, sometimes longer on first resize but still <2ms
+* Avg scripting time to generate last 10 frames is typically <1ms, after first 10 frames is <4ms
+* Time to resize pizzas is <2ms
 * Frame Rate Meter seems to indicate a consistent 59-61 fps when run with Paint Flashing and Layer Borders
-Firefox:
+***Firefox:***
 * Time to generate pizzas on load ranges around 63ms
-* Avg scripting time to generate last 10 frames is typically <1ms, sometimes the first 10 frames take longer, up to 2ms
-* Firefox shows a TypeError for 'timeToResize'
+* Avg scripting time to generate last 10 frames is typically <1ms
+* Time to resize pizzas is <3ms
 * Firefox displays a warning about scroll-linked positioning effect. Scrolling does not move the random pizzas, most likely due to asynchronous panning used in Firefox.
 
 ### Changes Made to main.js
 
-1. **updatePositions()** Moved computations outside of the for loop and changed document.querySelectorAll to use document.getElementsByClassName. Changed from using style.left to using style.transform on the pizza positions. (~line 504) **Result:** This reduced the time to generate the last 10 frames down to <1ms.
+1. **updatePositions()** Moved computations outside of the for loop and changed document.querySelectorAll to use document.getElementsByClassName. Changed computation of phase to only calculate the 5 values possible using mod5, rather than a value for each item with class name ‘mover’
    
-2. **Resized the pizza.png** used for moving pizzas down to 100px by 100px, this enabled removing the resizing of the image from the pizza generating loop in document.addEventListener. **Result:** This did not seem to improve anything, but this reduced the size of the image from 18.1kB to 5.7kB.
+2. **Resized the pizza.png** used for moving pizzas down to 100px by 100px, this enabled removing the resizing of the image from the pizza generating loop in document.addEventListener.
    
-3. **Reduced the number of sliding pizzas** from 200 down to 35. (~line 543) **Result:** This did not reduce the first generation of 10 frames, but subsequent generation of 10 frames was now <1ms.  Viewing the page on a large desktop screen, 1920 x 1080 pixels did not exhibit any noticeable lack of sliding pizzas.
+3. **Reduced the number of sliding pizzas** by calculating number of random pizzas based on window screen width and height.
    
-4. **pizzasDiv** Moved computation outside of the for loop that creates and appends pizzas (pizzasDiv). (~line 469)
+4. **pizzasDiv** Moved computation outside of the for loop that creates and appends pizzas (pizzasDiv). 
 
-5. **changePizzaSizes(size)** Moved computations outside of the for loop to reduce the time to resize pizzas. (~line 438) **Result:** This reduced the time to resize pizzas down to <2ms.
+5. **changePizzaSizes(size)** Changed code to select all “randomPizzaContainer” class elements in the DOM, and calc how many. Then calculated dx and newWidth for just one of the elements (because all will be the same size when slider is moved by user). Iterated through all elements in the DOM (pizzasOnMenu) to change their sizes.
     
-6. **document.addEventListener('DOMContentLoaded', function()** Removed height and width comps, they are not needed with the resized square image.
+6. **document.addEventListener('DOMContentLoaded', function()** Added computation for pizzaCount = cols * rows, the number of random background pizzas based on window.innerHeight/256 and window.innerWidth/256 to determine number of cols and rows
 
 7. Added 'use strict' to the top of the file.
  
