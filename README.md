@@ -1,6 +1,7 @@
 ## Project 4 - Website Optimization
 
-This Project resides at: https://github.com/lglaves/website-optimization-project and will be hosted at: http://www.lesliebeth.com temporarily.
+This Project resides at: https://github.com/lglaves/website-optimization-project 
+and will be hosted at: http://www.lesliebeth.com temporarily.
 
 ## Latest Deployment Date
 03/31/17 4:53am EST
