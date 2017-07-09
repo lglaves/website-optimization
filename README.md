@@ -6,6 +6,8 @@ and will be hosted at: http://www.lesliebeth.com temporarily.
 ## Latest Deployment Date
 03/31/17 4:53am EST
 
+## Project Information
+
 This is Project 4 for the Udacity Front End Developer Nanodegree. Goals for this project were to optimize the website for Cameron Pittman's Portfolio to meet the following performance metrics:
 
 1. **Critical Rendering Path:** Improve index.html to achieve a PageSpeed score of at least 90 for Mobile and Desktop views.
