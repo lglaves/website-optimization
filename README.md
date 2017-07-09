@@ -1,6 +1,9 @@
 ## Project 4 - Website Optimization
 
-This Project resides at: https://gitlab.com/lglaves/website-optimization and will be hosted at: http://www.lesliebeth.com temporarily.
+This Project resides at: https://github.com/lglaves/website-optimization-project and will be hosted at: http://www.lesliebeth.com temporarily.
+
+## Latest Deployment Date
+03/31/17 4:53am EST
 
 This is Project 4 for the Udacity Front End Developer Nanodegree. Goals for this project were to optimize the website for Cameron Pittman's Portfolio to meet the following performance metrics:
 
